@@ -1,6 +1,35 @@
 # Инструкция для пользователя
 
+Ждем первого релиза
+
 # Инструкция для разработчика
+
+**1. Клонируем векту `develop` из репозитория:**
+
+```
+git clone -b develop git@github.com:isvoropaev02/matrix_lib.git
+```
+
+**2. Установка `uv` и подтягиваем нужные зависимости:**
+
+```
+pip install uv
+uv sync
+```
+
+**3. Активация виртуального окружения (PowerShell или смотрим скрипт под себя)**
+
+```
+.\.venv\Scripts\Activate.ps1
+```
+
+**4. Пробуем запустить самоый простой ut:**
+
+```
+python ut/test_run_and_import.py
+```
+
+Скорее всего, все упадет, поэтому отсюда начинаем дебажить инструкцию.
 
 # Лог создания библиотеки `matrix_lib` (пока будет здесь)
 
@@ -83,3 +112,19 @@ source = { registry = "https://test.pypi.org/simple" }
 - В ветку `prod` будет заливаться только стабильный `develop`. Там уже не будет CI/CD.
 
 - Публиковать библиотеку в test.pypi только с ветки `prod`.
+
+**8. Настройка pre-commit:**
+
+```
+# Установка pre-commit через uv
+uv pip install pre-commit
+```
+
+Создаем файл конфигурации `.pre-commit-config.yaml`.
+
+В активированном окружении запускаем:
+
+```
+pre-commit install
+pre-commit run --all-files
+```
