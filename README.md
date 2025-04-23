@@ -128,3 +128,7 @@ uv pip install pre-commit
 pre-commit install
 pre-commit run --all-files
 ```
+
+**8. Создаем базовый класс `Matrix` на новой векте векте:**
+
+Потом надо пробовать бедать pull request. Далее будет PR в истории на гитхабе. Заодно проверим работу `squash commits`
