@@ -5,6 +5,7 @@ description = "Lab 3 for Matrix Calculations course"
 readme = "README.md"
 authors = [
     { name = "isvoropaev02", email = "is.voropaev@gmail.com" }
+    { name = "mikzuker", email = "mikzuker@gmail.com" }
 ]
 requires-python = ">=3.12"
 dependencies = [
