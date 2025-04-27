@@ -4,8 +4,9 @@ version = "0.1.0"
 description = "Lab 3 for Matrix Calculations course"
 readme = "README.md"
 authors = [
-    { name = "isvoropaev02", email = "is.voropaev@gmail.com" }
-    { name = "mikzuker", email = "mikzuker@gmail.com" }
+    { name = "isvoropaev02", email = "is.voropaev@gmail.com" },
+    { name = "mikzuker", email = "mikzuker@gmail.com" },
+    { name = "Dmitry-Malov", email = "mityamalov@yandex.ru" }
 ]
 requires-python = ">=3.12"
 dependencies = [
