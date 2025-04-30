@@ -22,3 +22,8 @@ dev = [
     "pre-commit>=4.2.0",
     "pytest>=8.3.5",
 ]
+
+[tool.pytest.ini_options]
+testpaths = ["ut"]
+python_files = "test_*.py"
+python_functions = "run_test*"

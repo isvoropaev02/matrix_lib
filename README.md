@@ -19,13 +19,21 @@ git clone -b develop https://github.com/isvoropaev02/matrix_lib.git
 И делаем:
 
 ```
-uv sync --with dev
+uv sync --dev
 ```
 
 **3. Пробуем запустить самоый простой ut:**
 
+В таком режиме можно отлаживать код на каком-то одном юнит-тесте.
+
 ```
-uv run python ut/test_run_and_import.py
+uv run python ut/test_import.py
+```
+
+**4. Пробуем запустить юнит тесты с помощью `pytest`:**
+
+```
+uv run pytest
 ```
 
 **4. Пробуем запустить `pre-commit`:**
