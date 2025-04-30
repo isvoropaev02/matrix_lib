@@ -8,16 +8,15 @@ repos:
       - id: check-added-large-files
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    # uv version.
     rev: 0.6.16
     hooks:
       - id: uv-lock
 
-  # - repo: https://github.com/astral-sh/ruff-pre-commit
-  #   rev: v0.4.2
-  #   hooks:
-  #     - id: ruff
-  #       args: [--fix, --show-fixes] # хер знает что это, оно постоянно падает, пока не разберемся отключаю
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.2
+    hooks:
+      - id: ruff
+        args: [--fix, --show-fixes]
 
   - repo: https://github.com/psf/black
     rev: 24.3.0

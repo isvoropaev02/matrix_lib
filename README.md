@@ -4,131 +4,51 @@
 
 # Инструкция для разработчика
 
+## Установка проекта
+
 **1. Клонируем векту `develop` из репозитория:**
 
 ```
-git clone -b develop git@github.com:isvoropaev02/matrix_lib.git
+git clone -b develop https://github.com/isvoropaev02/matrix_lib.git
 ```
 
 **2. Установка `uv` и подтягиваем нужные зависимости:**
 
-```
-pip install uv
-uv sync
-```
+По [официальной инструкции](https://docs.astral.sh/uv/getting-started/installation/#__tabbed_1_2).
 
-**3. Активация виртуального окружения (PowerShell или смотрим скрипт под себя)**
+И делаем:
 
 ```
-.\.venv\Scripts\Activate.ps1
+uv sync --with dev
 ```
 
-**4. Пробуем запустить самоый простой ut:**
+**3. Пробуем запустить самоый простой ut:**
 
 ```
-python ut/test_run_and_import.py
+uv run python ut/test_run_and_import.py
 ```
 
-Скорее всего, все упадет, поэтому отсюда начинаем дебажить инструкцию.
-
-# Лог создания библиотеки `matrix_lib` (пока будет здесь)
-
-Нужен для отладки и воспроизведения процесса создания библиотеки с нуля.
-
-## Проделанные шаги (Windows)
-
-**1. Установка `uv`:**
+**4. Пробуем запустить `pre-commit`:**
 
 ```
-pip install uv
+uv run pre-commit run --all-files
 ```
 
-**2. Создание шаблона библиоткеи:**
+## Работа с git:
+
+1. Можно открывать pull request в векту `develop`. Смерджиться можно после получения 1 апрува.
+
+2. Желательно удалить векту, которая была смерджена с `develop` на сервере.
+
+3. Правила названия пул реквестов:
 
 ```
-uv init --lib matrix_lib
+[TYPE] DESCRIPTION
 ```
+В скобочках указыватся тип изменений. Он может быть следующим:
 
-Создается директория со следующим содержанием:
+- [FEATURE] - если был реализован новый функционал в `src\matrix_lib` (и даже если вместе с ним написан юнит тест).
+- [TEST] - если функционал не добавлялся совсем, а был добавлен только тест.
+- [BUILD] - если изменения касаются сборки, зависимостей, конфигов и инструкций проекта.
 
-```
-matrix_lib
-|   .git
-|   .gitignore
-|   .python-version
-|   pyproject.toml
-|   README.md
-|
-\---src
-    \---matrix_lib
-            py.typed
-            __init__.py
-```
-
-**3. Добавим пакет `numpy`:**
-
-```
-uv add numpy
-```
-
-Автоматически было создано витруальное окружение `.venv`.
-
-**4. пробуем запустить питон с помощью `uv` через виртуальное окружение:**
-
-Создали тестовый файлик `test_run.py`:
-
-```
-print("Hello from local directory!")
-from matrix_lib import hello
-print(hello())
-```
-И запустили:
-```
-uv run python test_run.py
-# output
-# Hello from local directory!
-# Hello from matrix-lib!
-```
-
-**5. Активация виртуального окружения (PowerShell)**
-
-```
-.\.venv\Scripts\Activate.ps1
-```
-
-**6. Переписываем в файле `uv.lock` источник c PyPi на тестовый:**
-
-```
-source = { registry = "https://test.pypi.org/simple" }
-```
-**7. Планы на гит:**
-
-- Будет ветка `prod`, которую надо защитить от изменений. Изменения можно будет вносить только с ветки `develop`.
-
-- В ветке `develop` надо организовать CI/CD с помощью Github Actions (2000 минут бесплатных есть).
-
-- В ветку `develop` можно будет заливать код только через pull request.
-
-- В ветку `prod` будет заливаться только стабильный `develop`. Там уже не будет CI/CD.
-
-- Публиковать библиотеку в test.pypi только с ветки `prod`.
-
-**8. Настройка pre-commit:**
-
-```
-# Установка pre-commit через uv
-uv pip install pre-commit
-```
-
-Создаем файл конфигурации `.pre-commit-config.yaml`.
-
-В активированном окружении запускаем:
-
-```
-pre-commit install
-pre-commit run --all-files
-```
-
-**8. Создаем базовый класс `Matrix` на новой векте векте:**
-
-Потом надо пробовать бедать pull request. Далее будет PR в истории на гитхабе. Заодно проверим работу `squash commits`
+4. Желательно при мердже делать 'squash commits'.
