@@ -36,7 +36,7 @@ uv run python ut/test_import.py
 uv run pytest
 ```
 
-**4. Пробуем запустить `pre-commit`:**
+**5. Пробуем запустить `pre-commit`:**
 
 ```
 uv run pre-commit run --all-files
