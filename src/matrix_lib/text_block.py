@@ -8,12 +8,16 @@ class TextBlock:
     @classmethod
     def from_str(_cls, data):
         assert isinstance(data, str)
-        return TextBlock(data.split('\n'))
+        return TextBlock(data.split("\n"))
 
     def format(self, width=None, height=None):
-        if width is None: width = self.width
-        if height is None: height = self.height
-        return [f"{row:{width}}" for row in self.rows] + [' ' * width] * (height - self.height)
+        if width is None:
+            width = self.width
+        if height is None:
+            height = self.height
+        return [f"{row:{width}}" for row in self.rows] + [" " * width] * (
+            height - self.height
+        )
 
     @staticmethod
     def merge(blocks):
