@@ -325,7 +325,7 @@ class SymmetricMatrix(Matrix):
 
         raise NotImplementedError("Инверсия реализована только для числовых матриц")
 
-    def solve_slau(self, b):
+    def solve_slae(self, b):
         try:
             if self._ldlt_cache is not None:
                 L, D = self._ldlt_cache
@@ -542,7 +542,7 @@ class TriangularMatrix(Matrix):
 
             return inv_U
 
-    def solve_slau(self, b):
+    def solve_slae(self, b):
 
         n = self._size
         x = np.zeros_like(b, dtype=float)
