@@ -10,8 +10,8 @@ pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://
 
 **Примеры для ознакомления с библиотекой:**
 
-1. Hello World Example: [jupyter-notebook](examples\example_1_hello_world.ipynb)
-2. Full Matrix Example: [jupyter-notebook](examples\example_2_full_matrix.ipynb)
+1. Hello World Example: [jupyter-notebook](examples/example_1_hello_world.ipynb)
+2. Full Matrix Example: [jupyter-notebook](examples/example_2_full_matrix.ipynb)
 
 # Инструкция для разработчика
 
