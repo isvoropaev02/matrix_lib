@@ -1,5 +1,5 @@
 import numpy as np
-from scipy.linalg import solve_banded, qr
+from scipy.linalg import qr, solve_banded
 
 from .matrix import Matrix
 
@@ -28,12 +28,18 @@ class BandMatrix(Matrix):
             diag_dist = np.abs(row_indices - col_indices)
 
             if lower_bandwidth is None:
-                lower_bandwidth = np.max(diag_dist[row_indices > col_indices]) if np.any(
-                    row_indices > col_indices) else 0
+                lower_bandwidth = (
+                    np.max(diag_dist[row_indices > col_indices])
+                    if np.any(row_indices > col_indices)
+                    else 0
+                )
 
             if upper_bandwidth is None:
-                upper_bandwidth = np.max(diag_dist[col_indices > row_indices]) if np.any(
-                    col_indices > row_indices) else 0
+                upper_bandwidth = (
+                    np.max(diag_dist[col_indices > row_indices])
+                    if np.any(col_indices > row_indices)
+                    else 0
+                )
 
         self.kl = lower_bandwidth
         self.ku = upper_bandwidth
@@ -113,7 +119,9 @@ class BandMatrix(Matrix):
     def __add__(self, other):
         if isinstance(other, BandMatrix):
             assert self._size == other._size, "Размеры матриц должны совпадать"
-            assert self.kl == other.kl and self.ku == other.ku, "Ширины лент должны совпадать"
+            assert (
+                self.kl == other.kl and self.ku == other.ku
+            ), "Ширины лент должны совпадать"
             result = BandMatrix.zeros(self._size, self.kl, self.ku)
             result._values = self._values + other._values
             return result
@@ -123,7 +131,9 @@ class BandMatrix(Matrix):
     def __sub__(self, other):
         if isinstance(other, BandMatrix):
             assert self._size == other._size, "Размеры матриц должны совпадать"
-            assert self.kl == other.kl and self.ku == other.ku, "Ширины лент должны совпадать"
+            assert (
+                self.kl == other.kl and self.ku == other.ku
+            ), "Ширины лент должны совпадать"
             result = BandMatrix.zeros(self._size, self.kl, self.ku)
             result._values = self._values - other._values
             return result
@@ -199,4 +209,3 @@ class BandMatrix(Matrix):
     def __repr__(self):
         # Используем родительский __repr__
         return super().__repr__()
-
