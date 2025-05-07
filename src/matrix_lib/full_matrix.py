@@ -48,3 +48,9 @@ class FullMatrix(Matrix):
     def __setitem__(self, key, value):
         row, column = key
         self.data[row, column] = value
+
+    def inverse(self):
+        if np.issubdtype(self.dtype, np.number):
+            inv_data = np.linalg.inv(self.data)
+            return FullMatrix(inv_data)
+        raise NotImplementedError("Инверсия реализована только для числовых матриц")
