@@ -34,7 +34,7 @@ repos:
   - repo: local
     hooks:
       - id: uv-pytest
-        name: uv-pytest
+        name: ut check
         entry: uv run pytest
         language: system
         pass_filenames: false

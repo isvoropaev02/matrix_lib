@@ -1,4 +1,4 @@
-from .banded_matrix import BandMatrix
+from .band_matrix import BandMatrix
 from .full_matrix import FullMatrix
 from .matrix import Matrix
 from .symmetric_matrix import SymmetricMatrix
