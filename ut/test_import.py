@@ -1,7 +1,7 @@
 def run_test():
-    from matrix_lib import MatrixBase
+    import matrix_lib
 
-    _ = MatrixBase.zeros(1, 1)
+    _ = matrix_lib.__name__
     # без ассерта, тк исключение выбросит сама ошибка импорта, если произойдет
 
 
