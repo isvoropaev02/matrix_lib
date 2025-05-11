@@ -36,7 +36,7 @@ def test_to_dense():
     assert np.allclose(matrix.to_dense(), np.array([[1, 0, 0], [2, 3, 0], [4, 5, 6]])), f"Matrix is not dense, it is {matrix.to_dense()} instead of [[1, 0, 0], [2, 3, 0], [4, 5, 6]]"
 
 def test_zeros():
-    matrix = TriangularMatrix.zeros(3, 3)
+    matrix = TriangularMatrix.zeros(3, 0)
     assert np.allclose(matrix.to_dense(), np.array([[0, 0, 0], [0, 0, 0], [0, 0, 0]])), f"Matrix is not dense, it is {matrix.to_dense()} instead of [[0, 0, 0], [0, 0, 0], [0, 0, 0]]"
 
 def test_addition():
