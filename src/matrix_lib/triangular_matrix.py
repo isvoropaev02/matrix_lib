@@ -76,8 +76,7 @@ class TriangularMatrix(Matrix):
 
     @classmethod
     def zeros(cls, size, default=0):
-        new_matrix = np.empty((size, size), dtype=type(default))
-        new_matrix[:] = default
+        new_matrix = np.zeros((size, size), dtype=type(default))
         return TriangularMatrix(new_matrix)
 
     def __add__(self, other):
