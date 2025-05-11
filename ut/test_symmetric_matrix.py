@@ -1,5 +1,5 @@
 import numpy as np
-from matrix_lib.symmetric_matrix import SymmetricMatrix
+from matrix_lib import SymmetricMatrix
 
 def test_symmetry():
     matrix = SymmetricMatrix(np.array([
